@@ -10,11 +10,16 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
+            ConsoleKeyInfo userAction = Console.ReadKey(true);
+            bool exit = false;
             Message unMessage = new Message();
-            Console.WriteLine(unMessage.infoMessageSalutation);
-      
-            //ajouter du code pour suspendre l’application afin que la fenêtre de console ne se ferme pas 
-            Console.ReadLine();
+            while (!exit)
+            {
+                Console.WriteLine(unMessage.HelloMessage);
+                string input = Console.ReadLine();
+                exit = input == "exit";
+            }
         }
     }
 }
+

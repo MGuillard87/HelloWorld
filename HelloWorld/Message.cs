@@ -14,20 +14,22 @@ namespace HelloWorld
         private string BONSOIR = "Bonsoir";
         private string BONWEEKEND = "Bon week-end";
 
-        private DateTime local = DateTime.Now;
-        private DateTime heure = DateTime.Now;
         private string nomUtilisateur = Environment.UserName;
 
 
 
         private string messageDeSalutation()
         {
-            int jourLocalActuel = this.local.Day;
-            int heureActuel = this.heure.Hour;
-       
+            DayOfWeek jourLocalActuel = DateTime.Now.DayOfWeek;
+            int heureActuel = DateTime.Now.Hour;
 
-            if (jourLocalActuel == 1 || jourLocalActuel == 2 || jourLocalActuel == 3 || jourLocalActuel == 4 || jourLocalActuel == 5)
 
+            if (jourLocalActuel == DayOfWeek.Monday || jourLocalActuel == DayOfWeek.Tuesday || jourLocalActuel != DayOfWeek.Wednesday || jourLocalActuel == DayOfWeek.Thursday || jourLocalActuel == DayOfWeek.Friday)
+
+            {
+                Console.WriteLine(BONWEEKEND + " " + nomUtilisateur);
+                return "";
+            } else
             {
                 if (heureActuel >= 9 && heureActuel < 13)
                 {
@@ -38,30 +40,15 @@ namespace HelloWorld
                 {
                     Console.WriteLine(BONAPRESMIDI + " " + nomUtilisateur);
                     return "";
-                }
-                else if ((heureActuel > 18 && jourLocalActuel == 5) || (heureActuel <= 9 && jourLocalActuel == 1))
-                {
-                    Console.WriteLine(BONWEEKEND + " " + nomUtilisateur);
-                    return "";
-                }
-                else if (heureActuel > 18)
+                } else
                 {
                     Console.WriteLine(BONSOIR + " " + nomUtilisateur);
                     return "";
-                } else
-                {
-                    return "pas de résultat";
                 }
-
-            } else
-            {
-                return "pas de résultat";
             }
-
-
         }
 
-        public string infoMessageSalutation
+        public string HelloMessage
         {
             get { return messageDeSalutation(); }
          
