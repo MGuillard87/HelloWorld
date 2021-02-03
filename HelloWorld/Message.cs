@@ -13,8 +13,18 @@ namespace HelloWorld
         private string BONAPRESMIDI = "Bon après-midi";
         private string BONSOIR = "Bonsoir";
         private string BONWEEKEND = "Bon week-end";
+        private int matin;
+        private int apresMidi;
+        private int soir;
 
         private string nomUtilisateur = Environment.UserName;
+
+        public Message(int unMatin, int unApresMidi, int unSoir)
+        {
+            this.matin = unMatin;
+            this.apresMidi = unApresMidi;
+            this.soir = unSoir;
+        }
 
 
 
@@ -31,12 +41,12 @@ namespace HelloWorld
                 return "";
             } else
             {
-                if (heureActuel >= 9 && heureActuel < 13)
+                if (heureActuel >= this.matin && heureActuel < this.apresMidi)
                 {
                     Console.WriteLine(BONJOUR + " " + nomUtilisateur);
                     return "";
                 }
-                else if (heureActuel >= 13 && heureActuel < 18)
+                else if (heureActuel >= this.apresMidi && heureActuel < this.soir)
                 {
                     Console.WriteLine(BONAPRESMIDI + " " + nomUtilisateur);
                     return "";

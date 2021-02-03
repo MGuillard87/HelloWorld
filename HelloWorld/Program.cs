@@ -12,7 +12,7 @@ namespace HelloWorld
         {
             ConsoleKeyInfo userAction = Console.ReadKey(true);
             bool exit = false;
-            Message unMessage = new Message();
+            Message unMessage = new Message(9, 13, 18);
             while (!exit)
             {
                 Console.WriteLine(unMessage.HelloMessage);
