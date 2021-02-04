@@ -13,12 +13,12 @@ namespace HelloWorld
             ConsoleKeyInfo userAction = Console.ReadKey(true);
             bool exit = false;
             Message unMessage = new Message(9, 13, 18);
-            while (!exit)
+            do
             {
                 Console.WriteLine(unMessage.HelloMessage);
                 string input = Console.ReadLine();
                 exit = input == "exit";
-            }
+            } while (!exit);
         }
     }
 }
